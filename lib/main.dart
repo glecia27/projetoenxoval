@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('Quando o botao for presionado sera adicionado +1 ', style: TextStyle( fontSize: 40, color: Colors.deepPurple),),
+            const Text('Sera adicionado +1 ', style: TextStyle( fontSize: 40, color: Colors.deepPurple),),
             Text(
               '$_counter',
               style: TextStyle(color: Colors.deepPurple , fontSize: 50)
