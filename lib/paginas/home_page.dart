@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
             Center(
               child: Container(
                 decoration: BoxDecoration(color: Colors.transparent),
-                child: Text('Minha Home Page', style: TextStyle(fontSize: 50)),
+                child: Text('Minha Home', style: TextStyle(fontSize: 50)),
               ),
             ),
           ],
