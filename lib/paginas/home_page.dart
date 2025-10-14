@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('MEU TITULO', ), backgroundColor: Colors.green,),
+        appBar: AppBar(title: Text('Mudou o titulo', ), backgroundColor: Colors.green,),
         backgroundColor: Colors.grey[300],
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
