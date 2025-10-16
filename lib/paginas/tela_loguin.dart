@@ -80,7 +80,7 @@ class _TelaLoguin extends State<TelaLoguin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Entrar no App'), centerTitle: true),
+      appBar: AppBar(title: const Text('Coisa Fofa'), centerTitle: true),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
