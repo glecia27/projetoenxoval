@@ -186,7 +186,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         value: _selectedAccessLevel,
                         icon: const Icon(Icons.arrow_downward),
                         elevation: 16,
-                        style: const TextStyle(color: Colors.deepPurple, fontSize: 16),
+                        style: const TextStyle(color: Colors.blue, fontSize: 16),
                         onChanged: (String? newValue) {
                           setState(() {
                             _selectedAccessLevel = newValue!;
@@ -210,7 +210,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     onPressed: _isLoading ? null : _register,
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: Colors.deepPurple,
+                      backgroundColor: Colors.orange,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     ),
