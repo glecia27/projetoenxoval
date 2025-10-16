@@ -36,6 +36,10 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.pink[300],
         body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          selectedFontSize: 15,
+          unselectedFontSize: 10,
+          showSelectedLabels: true,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
