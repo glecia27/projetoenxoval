@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
           selectedFontSize: 15,
           unselectedFontSize: 10,
           showSelectedLabels: true,
+          enableFeedback: true,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
