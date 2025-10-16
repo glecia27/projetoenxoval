@@ -6,14 +6,14 @@ import '../db_service/db_service_models.dart';
 // TELA DE LOGIN
 // =========================================================
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class TelaLoguin extends StatefulWidget {
+  const TelaLoguin({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<TelaLoguin> createState() => _TelaLoguin();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _TelaLoguin extends State<TelaLoguin> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
