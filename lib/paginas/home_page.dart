@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: ''),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.black87,
+          selectedItemColor: Colors.pinkAccent,
           onTap: _onItemTapped,
         ),
       ),
