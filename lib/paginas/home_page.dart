@@ -13,10 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
-  );
+
   static const List<Widget> _widgetOptions = <Widget>[
     ListProdutos(),
     FavoritosPage(),
@@ -33,27 +30,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.pink[300],
-        body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+        body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          selectedFontSize: 15,
-          unselectedFontSize: 10,
-          showSelectedLabels: true,
-          enableFeedback: true,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedFontSize: 0.0,
+          unselectedFontSize: 0.0,
+          //backgroundColor: Colors.transparent,
+          iconSize: 35,
+          elevation: 150,
+
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favoritos',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              label: 'Carrinho',
-            ),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: ''),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.pinkAccent,
+          selectedItemColor: Colors.black87,
           onTap: _onItemTapped,
         ),
       ),
