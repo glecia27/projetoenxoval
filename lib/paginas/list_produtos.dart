@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ListProdutos extends StatelessWidget {
+class ListProdutos extends StatefulWidget {
   const ListProdutos({super.key});
 
+  @override
+  State<ListProdutos> createState() => _ListProdutosState();
+}
+
+class _ListProdutosState extends State<ListProdutos> {
   @override
   Widget build(BuildContext context) {
     //Container controla as cores da pagina de lista de produtos
