@@ -36,10 +36,10 @@ void main() async {
     if (products.isEmpty) {
       await dbService.insertProduct(
         Product(
-          name: 'Curso Avançado de Flutter',
-          price: 99.99,
+          name: 'Roupinhas DEMO',
+          price: 25.99,
           imageUrl:
-              'https://placehold.co/400x200/5E35B1/ffffff?text=FLUTTER+PRO',
+              'https://img.elo7.com.br/product/zoom/4961500/saida-maternidade-menino-enxoval-masculino-roupa-bebe.jpg',
         ),
       );
       print("🧩 Produto de teste inserido.");
