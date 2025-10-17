@@ -51,7 +51,7 @@ void main() async {
   // 🔹 Inicia o aplicativo
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      enabled: false,
       builder: (context) => const MyApp(),
     ),
   );

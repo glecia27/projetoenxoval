@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projetoenxoval/paginas/home_page.dart';
 import 'package:projetoenxoval/paginas/registar_user.dart';
 import '../db_service/db_service_models.dart';
+import 'list_produtos.dart';
 
 // =========================================================
 // TELA DE LOGIN
@@ -54,6 +56,11 @@ class _TelaLoguin extends State<TelaLoguin> {
           _showSnackbar(
             'Bem-vindo(a), ${user.username}! Nível: ${user.accessLevel.toUpperCase()}',
             success: true,
+          );
+
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
           );
 
           // Em um aplicativo real, aqui você navegaria para a Home Screen
