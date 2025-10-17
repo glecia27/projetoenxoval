@@ -3,10 +3,12 @@ import 'package:projetoenxoval/paginas/carrinho_page.dart';
 import 'package:projetoenxoval/paginas/favoritos_page.dart';
 import 'package:projetoenxoval/paginas/tela_loguin.dart';
 
+import '../db_service/db_service_models.dart';
 import 'list_produtos.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final User user;
+  const HomePage({super.key, required this.user});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -91,6 +93,19 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         body: _widgetOptions.elementAt(_selectedIndex),
+
+        floatingActionButton:
+            (widget.user.accessLevel == 'vendedor' ||
+                widget.user.accessLevel == 'administrador')
+            ? FloatingActionButton(
+                onPressed: () {
+                  // ... Lógica para ir para a tela de cadastro de produtos
+                },
+                backgroundColor: Colors.pinkAccent,
+                child: const Icon(Icons.add),
+              )
+            : null,
+
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: true,
