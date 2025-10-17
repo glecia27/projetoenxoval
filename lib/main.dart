@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
 
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      title: 'Projeto Enxoval',
+      title: 'Coisa Fofa Exoval',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         inputDecorationTheme: const InputDecorationTheme(
