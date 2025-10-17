@@ -39,7 +39,7 @@ void main() async {
           name: 'Curso Avançado de Flutter',
           price: 99.99,
           imageUrl:
-          'https://placehold.co/400x200/5E35B1/ffffff?text=FLUTTER+PRO',
+              'https://placehold.co/400x200/5E35B1/ffffff?text=FLUTTER+PRO',
         ),
       );
       print("🧩 Produto de teste inserido.");
@@ -49,12 +49,7 @@ void main() async {
   }
 
   // 🔹 Inicia o aplicativo
-  runApp(
-    DevicePreview(
-      enabled: false,
-      builder: (context) => const MyApp(),
-    ),
-  );
+  runApp(DevicePreview(enabled: false, builder: (context) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -64,6 +59,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       title: 'Projeto Enxoval',
