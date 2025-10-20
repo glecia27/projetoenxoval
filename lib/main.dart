@@ -72,6 +72,7 @@ class MyApp extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         ),
       ),
+      //para iniciar a tela principal do app é Tela LOGUIN TelaLoguin(),
       home: TelaLoguin(),
     );
   }

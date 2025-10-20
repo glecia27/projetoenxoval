@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../db_service/db_service_models.dart';
+
 class FavoritosPage extends StatefulWidget {
-  const FavoritosPage({super.key});
+  final User user;
+  const FavoritosPage({Key? key, required this.user});
 
   @override
   State<FavoritosPage> createState() => _FavoritosPageState();

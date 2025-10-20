@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../db_service/db_service_models.dart';
+
 class CarrinhoPage extends StatefulWidget {
-  const CarrinhoPage({super.key});
+  final User user;
+  const CarrinhoPage({super.key, required this.user});
 
   @override
   State<CarrinhoPage> createState() => _CarrinhoPageState();

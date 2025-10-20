@@ -4,6 +4,7 @@ import 'package:projetoenxoval/paginas/favoritos_page.dart';
 import 'package:projetoenxoval/paginas/tela_loguin.dart';
 
 import '../db_service/db_service_models.dart';
+import 'adicionar_produto.dart';
 import 'list_produtos.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,12 +17,39 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  final GlobalKey<ListProdutosState> _listProdutosKey =
+      GlobalKey<ListProdutosState>();
+  late final List<Widget> _widgetOptions;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    ListProdutos(),
-    FavoritosPage(),
-    CarrinhoPage(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _widgetOptions = <Widget>[
+      ListProdutos(
+        key: _listProdutosKey,
+        user: widget.user, // Passa),
+      ),
+      FavoritosPage(user: widget.user),
+      CarrinhoPage(user: widget.user),
+    ];
+  }
+
+  //Função para mostrar o modal e lidar com a atualização
+  void _showAddProdutoModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) {
+        return AdicionarProduto(
+          onProductAdded: () {
+            print(
+              "Produto Salvo! Agora, é nescessário chamar o refresh da ListProdutos.",
+            );
+          },
+        );
+      },
+    );
+  }
 
   void _mostrarOpcoes(BuildContext context) {
     showModalBottomSheet(
@@ -98,9 +126,7 @@ class _HomePageState extends State<HomePage> {
             (widget.user.accessLevel == 'vendedor' ||
                 widget.user.accessLevel == 'administrador')
             ? FloatingActionButton(
-                onPressed: () {
-                  // ... Lógica para ir para a tela de cadastro de produtos
-                },
+                onPressed: () => _showAddProdutoModal(context),
                 backgroundColor: Colors.pinkAccent,
                 child: const Icon(Icons.add),
               )
