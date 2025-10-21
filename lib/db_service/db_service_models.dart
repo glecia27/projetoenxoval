@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:path/path.dart';
+import 'dart:io'; // Adicionado para verificar Platform.isAndroid, etc.
 
 // === MODELOS DE DADOS ===
 
@@ -69,18 +70,22 @@ class DatabaseService {
   void _initDatabaseFactory() {
     // 🌐 Se for Web
     if (kIsWeb) {
-      // O sqflite_ffi_web deve estar configurado se você quiser usar no navegador
       print("🌐 Rodando no Flutter Web — banco local não suportado por sqflite.");
       return;
     }
 
-    // 💻 Se for Desktop
-    try {
-      sqfliteFfiInit();
-      databaseFactory = databaseFactoryFfi;
-      print("✅ SQFLite FFI inicializado.");
-    } catch (e) {
-      print("⚠️ Falha ao inicializar SQFLite FFI: $e");
+    // 💻 Se for Desktop (Windows, Linux, macOS)
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      try {
+        sqfliteFfiInit();
+        databaseFactory = databaseFactoryFfi;
+        print("✅ SQFLite FFI inicializado para desktop.");
+      } catch (e) {
+        print("⚠️ Falha ao inicializar SQFLite FFI: $e");
+      }
+    } else {
+      // 📱 Para Android e iOS, usa o sqflite padrão
+      print("✅ SQFLite nativo inicializado para Android/iOS.");
     }
   }
 

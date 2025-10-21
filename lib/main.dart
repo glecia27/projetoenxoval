@@ -1,12 +1,12 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'dart:io'; // Necessário para usar Platform.is...
+import 'dart:io';
 
 import 'package:projetoenxoval/paginas/registar_user.dart';
 import 'package:projetoenxoval/paginas/tela_loguin.dart';
-
 import 'db_service/db_service_models.dart';
 
 const List<String> accessLevels = ['padrao', 'vendedor', 'administrador'];
@@ -14,13 +14,13 @@ const List<String> accessLevels = ['padrao', 'vendedor', 'administrador'];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 🔹 Inicialize o driver do SQLite FFI antes de qualquer acesso ao banco
-  if (!kIsWeb) {
-    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      sqfliteFfiInit();
-      databaseFactory = databaseFactoryFfi;
-      print("✅ SQFLite FFI: Driver inicializado para plataforma desktop.");
-    }
+  // 🔹 Inicializar o SQLite apenas para plataformas desktop
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    sqfliteFfiInit();
+    sqflite.databaseFactory = databaseFactoryFfi;
+    print("✅ SQFLite FFI: Driver inicializado para plataforma desktop.");
+  } else {
+    print("✅ SQFLite: Usando driver nativo para Android/iOS ou outras plataformas.");
   }
 
   try {
@@ -39,7 +39,7 @@ void main() async {
           name: 'Roupinhas DEMO',
           price: 25.99,
           imageUrl:
-              'https://img.elo7.com.br/product/zoom/4961500/saida-maternidade-menino-enxoval-masculino-roupa-bebe.jpg',
+          'https://img.elo7.com.br/product/zoom/4961500/saida-maternidade-menino-enxoval-masculino-roupa-bebe.jpg',
         ),
       );
       print("🧩 Produto de teste inserido.");
@@ -59,7 +59,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       title: 'Coisa Fofa Exoval',
@@ -72,7 +71,6 @@ class MyApp extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         ),
       ),
-      //para iniciar a tela principal do app é Tela LOGUIN TelaLoguin(),
       home: TelaLoguin(),
     );
   }
