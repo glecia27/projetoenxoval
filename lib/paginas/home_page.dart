@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         key: _listProdutosKey,
         user: widget.user, // Passa),
       ),
-      FavoritosPage(user: widget.user),
+      FavoriteProductsList(user: widget.user),
       CarrinhoPage(user: widget.user),
     ];
   }

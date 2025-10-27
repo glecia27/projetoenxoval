@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'dart:io';
-
 import 'package:projetoenxoval/paginas/registar_user.dart';
 import 'package:projetoenxoval/paginas/tela_loguin.dart';
 import 'db_service/db_service_models.dart';
@@ -20,7 +19,9 @@ void main() async {
     sqflite.databaseFactory = databaseFactoryFfi;
     print("✅ SQFLite FFI: Driver inicializado para plataforma desktop.");
   } else {
-    print("✅ SQFLite: Usando driver nativo para Android/iOS ou outras plataformas.");
+    print(
+      "✅ SQFLite: Usando driver nativo para Android/iOS ou outras plataformas.",
+    );
   }
 
   try {
@@ -39,7 +40,7 @@ void main() async {
           name: 'Roupinhas DEMO',
           price: 25.99,
           imageUrl:
-          'https://img.elo7.com.br/product/zoom/4961500/saida-maternidade-menino-enxoval-masculino-roupa-bebe.jpg',
+              'https://img.elo7.com.br/product/zoom/4961500/saida-maternidade-menino-enxoval-masculino-roupa-bebe.jpg',
         ),
       );
       print("🧩 Produto de teste inserido.");
