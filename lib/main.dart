@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'dart:io';
-import 'package:projetoenxoval/paginas/registar_user.dart';
 import 'package:projetoenxoval/paginas/tela_loguin.dart';
 import 'db_service/db_service_models.dart';
 
