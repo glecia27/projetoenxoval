@@ -282,7 +282,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
     );
   }
 
-  // Widget para o resumo do total (Atualizado)
+  // Widget para o resumo do total
   Widget _buildTotalSummary(BuildContext context, double subtotal, double total) {
     return Container(
       padding: const EdgeInsets.all(16.0),
@@ -299,11 +299,11 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // 1. Seleção de Estado (Frete e ICMS)
+          // Seleção de Estado (Frete e ICMS)
           _buildShippingSelector(context, subtotal),
           const SizedBox(height: 8),
 
-          // 2. Subtotal (Valor dos produtos sem impostos)
+          // Subtotal (Valor dos produtos sem impostos)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -319,7 +319,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
           ),
           const SizedBox(height: 4),
 
-          // 3. Frete
+          // Frete
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -341,7 +341,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
           ),
           const SizedBox(height: 4),
 
-          // 4. ICMS (Novo campo)
+          // ICMS
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -361,7 +361,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
           ),
           const Divider(height: 20, thickness: 1),
 
-          // 5. Total Geral
+          //Total Geral
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -382,12 +382,12 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
           ),
           const SizedBox(height: 12),
 
-          // 6. Botão Finalizar Compra (Inalterado)
+          //Botão Finalizar Compra
           SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(
               onPressed: () {
-                // TODO: Implementar a lógica de finalização de compra / checkout
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
@@ -419,7 +419,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
     );
   }
 
-  // Novo Widget para seleção do estado de destino (Atualizado para passar subtotal)
+  // Widget para seleção do estado de destino (Atualizado para passar subtotal)
   Widget _buildShippingSelector(BuildContext context, double subtotal) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
